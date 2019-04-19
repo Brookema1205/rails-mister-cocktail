@@ -20,7 +20,18 @@ class CocktailsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    aadfadsf
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.save
+    redirect_to new_cocktail_path(@cocktail)
+
+  end
+
+
   private
+
   def cocktail_params
     params.require(:cocktail).permit(:name)
   end

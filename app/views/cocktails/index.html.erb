@@ -1,7 +1,31 @@
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-  <% end %>
-</ul>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<div class="header-row" id="header-row" style="padding: 0px; /*overflow:hidden*/; height:200px;">
+        <!-- container-fluid is the same as container but spans a wider viewport,
+    it still has padding though so you need to remove this either by adding
+    another class with no padding or inline as I did below -->
+   <div class="container-fluid" style="padding: 0px;">
+      <div class="row">
+        <!-- You originally has it set up for two columns, remove the second
+    column as it is unneeded and set the first to always span all 12 columns
+    even when at its smallest (xs). Set the overflow to hidden so no matter
+    the height of your image it will never show outside this div-->
+         <div class="col-xs-12">
+            <a class="navbar-brand logo" href="index.html">
+        <!-- place your image here -->
+               <img src="https://uncrate.com/p/2019/04/woodford-reserve-1000-julep.jpg" alt="banner pic" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
 
-<%= link_to "Add a new cocktail", new_cocktail_path %>
+<h2>
+  <% @cocktails.each do |cocktail| %>
+    <button class="btn btn-outline-secondary"><%= link_to cocktail.name, cocktail_path(cocktail) %></button>
+  <% end %>
+</h2>
+
+
+

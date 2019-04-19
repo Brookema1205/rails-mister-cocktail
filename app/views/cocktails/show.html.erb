@@ -1,10 +1,33 @@
+
+<img src="https://uncrate.com/p/2019/04/sun-valley-house-1.jpg" class="rounded" alt="left" style="width: 60%; height:60%; ">
 <h1><%= @cocktail.name %></h1>
 
-<%= simple_form_for @cocktail do |f| %>
+<table class="table table-bordered table-dark">
+  <tbody>
+  <thead>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Ingredients</th>
+      <th scope="col">desciprion</th>
+  </thead>
+  <% @cocktail.doses.each do |dose| %>
+  <tr>
+    <td><%= dose.id%></td>
+    <td><%= dose.cocktail.name%></td>
+    <td><%= dose.ingredient.name%></td>
+    <td><%= dose.description%></td>
+  </tr>
+    <% end %>
+    </tbody>
+</table>
 
-  <%= f.association :ingredients %>
+<button type="button" class="btn btn-dark"><%= link_to 'add an ingredient', new_cocktail_dose_path(@cocktail) %></button><br>
 
-<% end %>
+</button>
+<hr>
+<button type="button" class="btn btn-dark"><%= link_to 'go to the main page', cocktails_path %></button>
 
-<p><%= link_to 'go to the main page', cocktails_path %></p>
-<p><%= link_to 'add the dose', new_cocktail_dose_path(@cocktail) %></p>
+
+
+
+
